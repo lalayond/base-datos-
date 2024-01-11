@@ -5,6 +5,17 @@ nombre TEXT NOT NULL,
 apellido TEXT NOT NULL,
 dni TEXT UNIQUE
 );
+
+
+CREATE TABLE vehiculos
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+marca TEXT NOT NULL,
+modelo TEXT NOT NULL,
+anio INTEGER NOT NULL,
+id_propietario INTEGER references propietario(id)
+);
+
+
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Juan', 'Perez', '12345678A' );
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Maria', 'Lopez', '87654321B' );
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Carlos', 'Ruiz', '11111111C' );
@@ -25,14 +36,6 @@ INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Fernando', 'Herrera', 
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Clara', 'Soto', '16161616R' );
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Sergio', 'Mendoza', '17171717S' );
 INSERT INTO propietarios (nombre, apellido, dni) VALUES ('Patricia', 'Navarro', '18181818T' );
-
-CREATE TABLE vehiculos
-(id INTEGER PRIMARY KEY AUTOINCREMENT,
-marca TEXT NOT NULL,
-modelo TEXT NOT NULL,
-anio INTEGER NOT NULL,
-id_propietario INTEGER references propietario(id)
-);
 
 INSERT INTO vehiculos (marca, modelo, anio, id_propietario) VALUES ('Ford', 'Fiesta', '2019', '1');
 INSERT INTO vehiculos (marca, modelo, anio, id_propietario) VALUES ('Toyota', 'Corolla', '2018', '2');
