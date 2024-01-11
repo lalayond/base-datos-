@@ -58,84 +58,66 @@ INSERT INTO vehiculos (marca, modelo, anio, id_propietario) VALUES ('Toyota', 'H
 INSERT INTO vehiculos (marca, modelo, anio, id_propietario) VALUES ('Honda', 'Odyssey', '2016', '19');
 INSERT INTO vehiculos (marca, modelo, anio, id_propietario) VALUES ('Nissan', 'Murano', '2019', '20');
 
+ Seleccionar todos los propietarios 
+      SELECT * FROM propietarios;
 
 
-   Seleccionar todos los propietarios (SELECT * FROM propietarios);
+ Listar todos los vehículos
+      SELECT * FROM vehiculos;
 
 
-   Listar todos los vehículos. (SELECT * FROM vehiculos);
+Seleccionar solo los nombres y apellidos de los propietarios. 
+   SELECT nombre,apellido FROM propietarios;
 
 
-   Seleccionar solo los nombres y apellidos de los propietarios. (SELECT nombre,apellido FROM propietarios);
+Listar todas las marcas y modelos de los vehículos.
+   SELECT marca,modelo FROM vehiculos;
 
 
-   Listar todas las marcas y modelos de los vehículos.
-(SELECT marca,modelo FROM vehiculos);
+Seleccionar solo los propietarios con apellido "Perez".
+  SELECT Propietarios WHERE apellido="Perez";
 
 
-   Seleccionar solo los propietarios con apellido "Perez".
-SELECT Propietarios WHERE apellido="Perez";
-+----+--------+----------+-----------+
-| id | nombre | apellido |    dni    |
-+----+--------+----------+-----------+
-| 1  | Juan   | Perez    | 12345678A |
-+----+--------+----------+-----------+
-SELECT * FROM Propietarios WHERE apellido="Perez";
+Listar todos los vehículos con año 2019.
+     SELECT * FROM vehiculos WHERE anio="2019";
 
 
-   Listar todos los vehículos con año 2019.
-(SELECT * FROM vehiculos WHERE anio="2019");
+Seleccionar propietarios que tienen vehículos de la marca "Toyota".
+      SELECT * FROM Propietarios as p,Vehiculos as v WHERE v.id_propietario = p.id and v.marca="Toyota";
 
 
-   Seleccionar propietarios que tienen vehículos de la marca "Toyota".
-SELECT * FROM Propietarios as p,Vehiculos as v WHERE v.id_propietario = p.id and v.marca="Toyota";
-+----+--------+----------+-----------+----+--------+------------+------+----------------+
-| id | nombre | apellido |    dni    | id | marca  |   modelo   | anio | id_propietario |
-+----+--------+----------+-----------+----+--------+------------+------+----------------+
-| 2  | Maria  | Lopez    | 87654321B | 2  | Toyota | Corolla    | 2018 | 2              |
-| 7  | Diego  | Sanchez  | 55555555G | 7  | Toyota | Golf       | 2020 | 7              |
-| 12 | Marta  | Diaz     | 10101010L | 12 | Toyota | Camry      | 2020 | 12             |
-| 18 | Clara  | Soto     | 16161616R | 18 | Toyota | Highlander | 2020 | 18             |
-+----+--------+----------+-----------+----+--------+------------+------+----------------+
+Listar vehículos con marca "Ford" y modelo "Fiesta".
+   SELECT * FROM vehiculos WHERE marca="Ford" and modelo="Fiesta";
 
 
-   Listar vehículos con marca "Ford" y modelo "Fiesta".
-(SELECT * FROM vehiculos WHERE marca="Ford" and modelo="Fiesta");
+Seleccionar propietarios con DNI "12345678A".
+   SELECT * FROM propietarios WHERE DNI="12345678A";
 
 
-   Seleccionar propietarios con DNI "12345678A".
-(SELECT * FROM propietarios WHERE DNI="12345678A");
+ Listar vehículos que pertenecen al propietario con ID 5.
+   SELECT * FROM vehiculos WHERE id="5";
 
 
 
-
-   Listar vehículos que pertenecen al propietario con ID 5.
-(SELECT * FROM vehiculos WHERE id="5");
-
+Actualizar el nombre de un propietario con DNI "12345678A".
+   UPDATE propietarios set nombre="Pepita" WHERE dni="12345678A" ;
 
 
 
+Modificar el año de un vehículo con ID 3 a 2022.
+   UPDATE vehiculos set anio="2022" WHERE id="3"
 
 
-   Actualizar el nombre de un propietario con DNI "12345678A".
-(UPDATE propietarios set nombre="Pepita" WHERE dni="12345678A" );
+Cambiar el modelo de todos los vehículos Nissan a "Micra".
+   UPDATE vehiculos set modelo="Micra" WHERE modelo="Nissan"
 
 
-
-   Modificar el año de un vehículo con ID 3 a 2022.
-UPDATE vehiculos set anio="2022" WHERE id="3"
-
-
-   Cambiar el modelo de todos los vehículos Nissan a "Micra".
-UPDATE vehiculos set modelo="Micra" WHERE modelo="Nissan"
+Actualizar el apellido de un propietario con ID 7 a "Gomez".
+   UPDATE propietarios set apellido="Gomez" WHERE id="7"
 
 
-   Actualizar el apellido de un propietario con ID 7 a "Gomez".
-UPDATE propietarios set apellido="Gomez" WHERE id="7"
-
-
-   Modificar la marca de un vehículo con modelo "Fiesta" a "Renault".
-UPDATE vehiculos set modelo="Renault" WHERE modelo="Fiesta"
+Modificar la marca de un vehículo con modelo "Fiesta" a "Renault".
+   UPDATE vehiculos set modelo="Renault" WHERE modelo="Fiesta"
 
 
 
