@@ -1,4 +1,5 @@
 -sqlite3 tarea4.db
+    
 CREATE TABLE productos (
     id INTEGER PRIMARY KEY,
     nombre TEXT,
