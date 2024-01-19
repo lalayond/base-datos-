@@ -231,33 +231,44 @@ Realiza las siguientes consultas, y muestra el resultado obtenido:
                 └────┴─────────────────┴───────────┴────────┘
 
     Obtener el producto más vendido en términos de cantidad.
+         SELECT id_producto, SUM(cantidad) AS total_cantidad FROM ventas GROUP BY id_producto ORDER BY total_cantidad DESC LIMIT 1;
 
     Mostrar los productos que fueron vendidos en la fecha '2024-01-18'.
 
     Calcular el total de ventas para cada producto.
+          SELECT p.id, p.nombre, SUM(v.cantidad) AS total_ventas FROM productos p LEFT JOIN ventas v ON p.id = v.id_producto GROUP BY p.id, p.nombre;
 
     Encontrar los productos con un precio entre 3 y 4.
+         SELECT * FROM productos WHERE precio BETWEEN 3 AND 4;
 
     Listar los productos y sus categorías ordenados alfabéticamente por categoría.
+          SELECT nombre, categoria FROM productos ORDER BY categoria, nombre;
 
     Calcular el precio total de los productos vendidos en la fecha '2024-01-19'.
+          SELECT SUM(p.precio) AS precio_total FROM productos p JOIN ventas v ON p.id = v.id_producto WHERE v.fecha = '2024-01-19';
 
     Mostrar los productos que no pertenecen a la categoría "Higiene".
+          SELECT * FROM productos WHERE categoria != 'Higiene';
 
     Encontrar la cantidad total de productos en cada categoría.
-
+           
     Listar los productos que tienen un precio igual a la media de precios.
 
     Calcular el precio total de los productos vendidos en cada fecha.
-    
+          SELECT fecha, SUM(p.precio) AS precio_total FROM ventas v JOIN productos p ON v.id_producto = p.id GROUP BY fecha;
+
     Mostrar los productos con un nombre que termina con la letra 'o'.
-    
+            SELECT * FROM productos WHERE nombre LIKE "%o";
+
     Encontrar los productos que han sido vendidos en más de una fecha.
-    
+          SELECT id_producto, COUNT(DISTINCT fecha) AS num_fechas FROM ventas GROUP BY id_producto HAVING num_fechas > 1;
+
     Listar los productos cuya categoría comienza con la letra 'L'.
-    
+          SELECT * FROM productos WHERE precio = (SELECT AVG(precio) FROM productos);
+
     Calcular el total de ventas para cada producto en la fecha '2024-01-17'.
-    
+         SELECT categoria, COUNT(*) AS total_productos FROM productos GROUP BY categoria;
+
     Mostrar los productos cuyo nombre tiene al menos 5 caracteres.
-    
+          
     Encontrar los productos que tienen un precio superior al precio máximo en la tabla "productos".
