@@ -4,7 +4,7 @@ update Pokemon set nivel=14 where nombre='Bulbasaur';
 ┌────┬────────────┬─────────┬───────┐
 │ id │   nombre   │ id_tipo │ nivel │
 ├────┼────────────┼─────────┼───────┤
-│ 1  │ Bulbasaur  │ 3       │ 11    ││
+│ 1  │ Bulbasaur  │ 3       │ 14    │
 └────┴────────────┴─────────┴───────┘
 **/
 
